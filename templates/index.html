@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú de Heladería</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Menú de Heladería</h1>
+    <div class="menu">
+        {% for producto in productos %}
+            <div class="producto">
+                <h2>{{ producto.nombre }}</h2>
+                <p>Precio: ${{ producto.precio_publico }}</p>
+                <p>Tipo de Vaso: {{ producto.tipo_vaso }}</p>
+                <p>Calorías: {{ producto.calcular_calorias() }}</p>
+                <p>Rentabilidad: ${{ producto.calcular_rentabilidad() }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
